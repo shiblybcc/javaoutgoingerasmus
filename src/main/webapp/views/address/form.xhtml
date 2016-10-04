@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+>
+
+<f:view>
+
+    <h:form id="stammdaten">
+
+        <h:message for="RegisterGroupPanel" style="color:red;" />
+
+        <h:panelGrid columns="3" id="RegisterGroupPanel">
+
+            <h:outputLabel for="firstName" value="First name : " />
+            <h:inputText id="firstName" value="#{stammdatenController.stammdaten.firstName}" /> <br />
+
+            <h:outputLabel for="lastName" value="Last name : " />
+            <h:inputText id="lastName" value="#{stammdatenController.stammdaten.lastName}" /> <br />
+
+            <h:outputLabel for="matriculation_no" value="Matriculation No : " />
+            <h:inputText id="matriculation_no" value="#{stammdatenController.stammdaten.matriculationNo}" required="true"
+                         requiredMessage="Please enter matriculation no" />
+            <h:message for="matriculation_no" style="color: red;" />
+
+
+        </h:panelGrid>
+
+        <h:commandButton action="#{stammdatenController.create()}" value="Send" />
+    </h:form>
+
+</f:view>
+
+
+
+</html>

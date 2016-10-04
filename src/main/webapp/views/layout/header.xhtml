@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<f:view>
+    <h:body>
+        <header id="fh5co-header" role="banner">
+            <div class="container">
+                <div class="header-inner">
+                    <h:outputLink value="/">
+                        <h:graphicImage value="../../resources/images/CBMB-logo-2.png" styleClass="logo" />
+                    </h:outputLink>
+                    <nav role="navigation">
+                        <ul>
+                            <c:if test="#{request.remoteUser == null}">
+                                <li><h:outputLink value="/login">Login</h:outputLink></li>
+                                <li><h:outputLink value="/register">Register</h:outputLink></li>
+                            </c:if>
+                            <c:if test="#{request.remoteUser != null}">
+                                <li><h:outputLink value="/stammdatens">Stammdaten</h:outputLink></li>
+                                <li><h:outputLink value="/languages">Language</h:outputLink></li>
+                                <li><h:outputLink value="/users">Users</h:outputLink></li>
+                                <li><h:outputLink value="/users/profile">Profile</h:outputLink></li>
+                                <li><h:outputLink value="/logout">Logout</h:outputLink></li>
+                            </c:if>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+    </h:body>
+</f:view>
+</html>
