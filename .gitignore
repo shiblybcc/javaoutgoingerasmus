@@ -29,3 +29,5 @@ pom.xml
 src/
 test2db.mv.db
 test2db.trace.db
+/test2db.trace.db
+/test2db.mv.db
