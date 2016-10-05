@@ -10,19 +10,22 @@ public class LanguageSkill {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "stammdaten_id")
     private Stammdaten stammdaten;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "language_id")
     private Language language;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "languageProficiencyLevel_id")
     private LanguageProficiencyLevel languageProficiencyLevel;
 
 
+
+
+    //getters setters
     public Stammdaten getStammdaten() {
         return stammdaten;
     }

@@ -9,7 +9,7 @@
 
 <f:view>
 
-    <h:form id="stammdaten">
+    <h:form id="stammdaten" enctype="multipart/form-data">
 
         <h:message for="RegisterGroupPanel" style="color:red;"/>
 
@@ -41,27 +41,46 @@
         </ui:include>
 
         <br/>
+        <br/>
 
-
-
-        <h:dataTable id="testTable" value="#{stammdatenController.items}" var="item">
+        <h:dataTable id="testTable" value="#{stammdatenController.languageProficiencies}" var="languageProficiency">
             <h:column>
-                <h:selectOneMenu value="#{item.id}">
-                    <f:selectItems value="#{languageController.index()}" var="language" itemValue="#{language.id}"
+                <h:selectOneMenu value="#{languageProficiency.language_id}">
+                    <f:selectItems value="#{stammdatenController.languageService.findAll()}" var="language" itemValue="#{language.id}"
                                    itemLabel="#{language.name}"/>
+                </h:selectOneMenu>
+                <h:selectOneMenu value="#{languageProficiency.language_proficiency_id}">
+                    <f:selectItems value="#{stammdatenController.languageProficiencyLevelService.findAll()}" var="languageLevel" itemValue="#{languageLevel.id}"
+                                   itemLabel="#{languageLevel.name}"/>
                 </h:selectOneMenu>
             </h:column>
             <h:column>
-                <h:commandButton value="remove" action="#{stammdatenController.removeLanguageId(item)}">
+                <h:commandButton value="remove" action="#{stammdatenController.removeLanguageProficiency(languageProficiency)}">
                     <f:ajax execute="@this" render="testTable"/>
                 </h:commandButton>
             </h:column>
         </h:dataTable>
-        <h:commandButton value="Add Language" action="#{stammdatenController.addLanguageId}">
+        <h:commandButton value="Add Language" action="#{stammdatenController.addLanguageProficiency}">
             <f:ajax execute="@this" render="testTable"/>
         </h:commandButton>
 
-        <br/>
+
+
+
+
+
+        <br />
+
+        <br />
+
+
+
+        <h:outputLabel for="scannedImage" value="Upload scanned image: " />
+        <h:inputFile id="scannedImage" value="#{stammdatenController.file}"   />
+        <h:message for="scannedImage" style="color: red;" />
+
+        <br />
+
 
         <h:commandButton action="#{stammdatenController.create()}" value="Send"/>
 

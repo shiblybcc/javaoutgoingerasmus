@@ -1,6 +1,8 @@
 package com.example.outgoing.Entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class LanguageProficiencyLevel {
@@ -11,6 +13,19 @@ public class LanguageProficiencyLevel {
     private Integer id;
 
     private String name;
+
+    @OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER, mappedBy = "languageProficiencyLevel" )
+    private List<LanguageSkill> languageSkills = new ArrayList<LanguageSkill>();
+
+
+    //getters setters
+    public List<LanguageSkill> getLanguageSkills() {
+        return languageSkills;
+    }
+
+    public void setLanguageSkills(List<LanguageSkill> languageSkills) {
+        this.languageSkills = languageSkills;
+    }
 
     public Integer getId() {
         return id;

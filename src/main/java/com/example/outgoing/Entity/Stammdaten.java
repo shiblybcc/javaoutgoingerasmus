@@ -11,46 +11,36 @@ public class Stammdaten {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
 
-//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-////    @JoinColumn(name = "address_id")
-//    private Collection<Address> addresses = new ArrayList<Address>();
-
     private String firstName;
     private String lastName;
     private Integer matriculationNo;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "stammdaten" )
     private List<Address> addresses = new ArrayList<Address>();
-//    private Collection<Address> addresses = new ArrayList<Address>();
 
-//    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-//    @JoinTable(name="STAMMDATEN_LANGUAGE",
-//            joinColumns={@JoinColumn(name="STAMMDATEN_ID")},
-//            inverseJoinColumns={@JoinColumn(name="LANGUAGE_ID")})
-//    private Set<Language> languages = new HashSet<Language>();
+    @OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER, mappedBy = "stammdaten" )
+    private List<LanguageSkill> languageSkills = new ArrayList<LanguageSkill>();
 
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "stammdaten" )
+    private List<StammdatenFile> stammdatenFiles = new ArrayList<StammdatenFile>();
 
-    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    private List<Language> languages = new ArrayList<Language>();
+    //getters setters
 
-
-
-    public List<Language> getLanguages() {
-        return languages;
+    public List<StammdatenFile> getStammdatenFiles() {
+        return stammdatenFiles;
     }
 
-    public void setLanguages(List<Language> languages) {
-        this.languages = languages;
+    public void setStammdatenFiles(List<StammdatenFile> stammdatenFiles) {
+        this.stammdatenFiles = stammdatenFiles;
     }
 
+    public List<LanguageSkill> getLanguageSkills() {
+        return languageSkills;
+    }
 
-//    public Set<Language> getLanguages() {
-//        return languages;
-//    }
-//
-//    public void setLanguages(Set<Language> languages) {
-//        this.languages = languages;
-//    }
+    public void setLanguageSkills(List<LanguageSkill> languageSkills) {
+        this.languageSkills = languageSkills;
+    }
 
     public List<Address> getAddresses() {
         return addresses;

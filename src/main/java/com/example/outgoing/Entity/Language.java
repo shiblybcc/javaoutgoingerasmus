@@ -14,18 +14,16 @@ public class Language {
 
     private String name;
 
-//    @ManyToMany(mappedBy="meetings")
-//    private Set<Employee> employees = new HashSet<Employee>();
+    @OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER, mappedBy = "language" )
+    private List<LanguageSkill> languageSkills = new ArrayList<LanguageSkill>();
 
-    @ManyToMany(mappedBy = "languages")
-    private List<Stammdaten> stammdatens = new ArrayList<Stammdaten>();
-
-    public List<Stammdaten> getStammdatens() {
-        return stammdatens;
+    //getters setters
+    public List<LanguageSkill> getLanguageSkills() {
+        return languageSkills;
     }
 
-    public void setStammdatens(List<Stammdaten> stammdatens) {
-        this.stammdatens = stammdatens;
+    public void setLanguageSkills(List<LanguageSkill> languageSkills) {
+        this.languageSkills = languageSkills;
     }
 
     public Integer getId() {

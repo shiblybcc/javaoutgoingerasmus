@@ -24,13 +24,20 @@ public class FacesRewriteConfigurationProvider extends HttpConfigurationProvider
                 .addRule(Join.path("/").to("/views/index.jsf"))
                 .addRule(Join.path("/index").to("/views/index.jsf"))
                 .addRule(Join.path("/index.xhtml").to("/views/index.jsf"))
+
                 .addRule(Join.path("/stammdatens").to("/views/stammdaten/index.jsf"))
                 .addRule(Join.path("/stammdatens/new").to("/views/stammdaten/new.jsf"))
                 .addRule(Join.path("/stammdatens/test").to("/views/stammdaten/test.jsf"))
                 .addRule(Join.path("/stammdatens/{id}").to("/views/stammdaten/show.jsf"))
+
                 .addRule(Join.path("/languages").to("/views/language/index.jsf"))
                 .addRule(Join.path("/languages/new").to("/views/language/new.jsf"))
                 .addRule(Join.path("/languages/{id}").to("/views/language/show.jsf"))
+
+                .addRule(Join.path("/languagelevels").to("/views/languagelevel/index.jsf"))
+                .addRule(Join.path("/languagelevels/new").to("/views/languagelevel/new.jsf"))
+                .addRule(Join.path("/languagelevels/{id}").to("/views/languagelevel/show.jsf"))
+
                 .addRule(Join.path("/login").to("/views/login.jsf"))
                 .addRule(Join.path("/logout").to("/views/logout.jsf"))
                 .addRule(Join.path("/users").to("/views/user/users.jsf"))

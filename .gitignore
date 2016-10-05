@@ -21,3 +21,5 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+/test2db.trace.db
+/test2db.mv.db

@@ -10,10 +10,6 @@ public class Address {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
 
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    private Stammdaten stammdaten;
-
-
     private String street;
     private Integer houseNumber;
     private Integer plz;
@@ -24,6 +20,7 @@ public class Address {
     @JoinColumn(name = "stammdaten_id")
     private Stammdaten stammdaten;
 
+    //getters setters
     public Stammdaten getStammdaten() {
         return stammdaten;
     }
